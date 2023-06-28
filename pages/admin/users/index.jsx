@@ -69,10 +69,10 @@ export default function User({ user }) {
 }
 
 export async function getServerSideProps() {
-  const { data } = await getUser();
+  const userRes = await getUser();
   return {
     props: {
-      user: data,
+      user: userRes?.data ?? [],
     },
   };
 }
